@@ -1,0 +1,54 @@
+version: '3'
+
+#Nginx の /usr/share/nginx/html ディレクトリに index.html (Welcome to nginx!) が入っている
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - 8080:80
+    volumes:
+#      - .:/usr/share/nginx/html
+      - .:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+
+  php:
+#    image: php:7.4.33-fpm
+#    build: ./docker/php
+    build:
+#      context: .
+      dockerfile: ./docker/php/Dockerfile
+    ports:
+      - 9000:9000
+    volumes:
+#      - .:/usr/share/nginx/html
+      - .:/var/www/html
+#      - ./docker/.env:/var/www/html/.env
+#    environment:
+#      - DB_HOST=mysql
+#      - DB_DATABASE=meeting
+#      - DB_USERNAME=root
+#      - DB_PASSWORD=Root9494
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mariadb:10.5
+    environment:
+      - MYSQL_ROOT_PASSWORD=Root9494
+      - MYSQL_DATABASE=meeting
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=User8484
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql:/var/lib/mysql
+  
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - 8888:80
+    environment:
+      PMA_HOST: mysql
