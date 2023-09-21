@@ -15,9 +15,9 @@
                 -->
                 
                 <nav id='sidemenu'>
-	                <a href='/home'>ミーティング 管理</a>
-									<a href='/users'>ユーザー 管理</a>
-								</nav>
+	                <a href='/meetings'>ミーティング 管理</a>
+					<a href='/users'>ユーザー 管理</a>
+				</nav>
                 
             </div>
         </div>

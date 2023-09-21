@@ -1,5 +1,65 @@
 @charset "UTF-8";
 
+.btnGrad, .btnSubmit {
+	border-color: hsl(0, 0%, 91%) hsl(0, 0%, 85%) hsl(0, 0%, 76%) hsl(0, 0%, 91%);
+	border-style: solid;
+	border-width: 1px;
+	box-shadow: 0 12px 12px -6px rgba(64, 64, 64, 19.5%);
+	color: hsl(0, 0%, 24%);
+	cursor: pointer;
+	display: inline-block;
+	height: 36px;/*(30+42)/2、input[type="text"]の高さ = font-size(16) + 8 * 2 + border * 2*/
+	line-height: 34px;
+	padding: 0 16px;/* input[type="text"] の高さに大体一致するため */
+	text-align: center;
+	text-decoration: none;
+	
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(hsl(0, 0%, 88%)));
+	background: -moz-linear-gradient(top, #fff, hsl(0, 0%, 88%));
+	background: -ms-linear-gradient(top, #fff, hsl(0, 0%, 88%));
+}
+.btnGrad:hover, .btnSubmit:hover {
+	border-color: hsl(0, 0%, 85%) hsl(0, 0%, 76%) hsl(0, 0%, 62%) hsl(0, 0%, 85%);
+	box-shadow: 0 12px 12px -6px rgba(64, 64, 64, 24%);
+	color: hsl(0, 0%, 15%);
+	position: relative;
+	top: -1px;
+}
+.btnGrad.background-blue, .btnSubmit.background-blue {
+	background: -webkit-gradient(linear, left top, left bottom, from(hsl(210, 100%, 76%)), to(hsl(210, 100%, 50%)));
+	background: -moz-linear-gradient(top, hsl(210, 100%, 76%), hsl(210, 100%, 50%));
+	background: -ms-linear-gradient(top, hsl(210, 100%, 76%), hsl(210, 100%, 50%));
+	color: #fff;
+}
+header {
+	background: #585757;
+	color: #fff;
+	display: flex;
+	padding: 16px 30px 12px 30px;
+}
+header > div {
+	width: calc(100% - 22px);
+}
+header > div:last-child {
+	padding-top: 14px;
+	width: 22px;
+}
+header img {
+	height: 51px;
+	margin-right: 22px;
+}
+main {
+	display: flex;
+}
+.margin-top-8px {margin-top: 8px;}
+.margin-top-12px {margin-top: 12px;}
+.margin-top-30px {margin-top: 30px;}
+.max-width-960px {max-width: 960px;}
+.red {color: hsl(0, 100%, 50%);}
 #sidemenu {
 	transition: 0.3s;
 }
@@ -14,4 +74,103 @@
 #sidemenu a:hover {
 	padding-left: 22px;
 	text-decoration: none;
+}
+.smaller {font-size: 85%;}
+table th {
+	font-weight: normal;
+}
+table.form {
+	border-color: hsl(0, 0%, 91%) hsl(0, 0%, 85%) hsl(0, 0%, 85%) hsl(0, 0%, 91%);
+	border-style: solid;
+	border-width: 1px 0 0 1px;
+}
+table.form td {
+	border-color: hsl(0, 0%, 85%);
+	border-style: solid;
+	border-width: 0 1px 1px 0;
+	padding: 16px;
+}
+table.form th {
+	background: hsl(0, 0%, 91%);
+	border-color: hsl(0, 0%, 85%);
+	border-style: solid;
+	border-width: 0 1px 1px 0;
+	padding: 16px;
+	text-align: left;
+	width: 25%;
+}
+.width-60px {width: 60px;}
+.width-100 {width: 100%;}
+
+@media only screen and (min-width:768px){/*PC*/
+	#btnHamburger {
+		display: none;
+	}
+	.btnSubmit {
+		height: 60px; 
+		margin: 16px 0 0 0;
+		width: 25%;
+	}
+	.btnSubmit.reset {
+		display: inline-block;
+		margin: 16px 0 0 2px;
+	}
+	#content {
+		padding: 42px 84px;
+		width: 87.5%;
+	}
+	/*
+	#sidemenu {
+		width: 12.5%;
+	}
+	*/
+	#sidemenu a {
+		color: hsl(0, 0%, 24%);
+		/*font-size: 76%;*/
+		
+		background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(hsl(199, 38%, 97%)));
+	  background: -moz-linear-gradient(top, #fff, hsl(199, 38%, 97%));
+	  background: -ms-linear-gradient(top, #fff, hsl(199, 38%, 97%));
+	}
+}
+@media only screen and (max-width:767px){/*SP*/
+	#btnHamburger {
+		cursor: pointer;
+		display: block;
+		height: 100%;
+	}
+	#btnHamburger span {
+		border-color: #fff;
+		border-style: solid;
+		border-width: 1px 0;
+		display: block;
+		margin: 0 auto 8px auto;
+	}
+	.btnSubmit {
+		display: block;
+		height: 48px;
+		margin-top: 16px;
+		width: 100%;
+	}
+	.btnSubmit.reset {
+		display: block;
+		margin-top: 3px;
+	}
+	#content {
+		padding: 42px 84px;
+		width: 100%;
+	}
+	#sidemenu {
+		margin-left: -80%;
+		position: absolute;
+		width: 80%;
+	}
+	#sidemenu.open {
+		margin-left: 0;
+	}
+	#sidemenu a {
+		background: #000;
+		color: #fff;
+		font-size: 85%;
+	}
 }

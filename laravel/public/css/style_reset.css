@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+/* 本ファイルでは、クラス指定のない HTML タグのみでの初期状態を設定します */
+
+* {-webkit-box-sizing:border-box}/* Safari, Chrome */
+* {-moz-box-sizing:border-box}/* Firefox */
+* {-ms-box-sizing:border-box}/* IE */
+* {box-sizing:border-box}/* Opera */
+
+body {
+	color: hsl(0, 0%, 24%);
+	font-family: Meiryo,'メイリオ','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3';
+	letter-spacing: 0.05em;
+	margin: 0;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-size: inherit; 
+	font-weight: normal; 
+	line-height: 176%; 
+	margin: 0; 
+}
+html {
+	font-size: 15px;/*WordPress JIN(16px)よりやや小さい*/
+}
+input[type="checkbox"] {
+	cursor: pointer;
+}
+input[type="number"], 
+input[type="password"], 
+input[type="tel"], 
+input[type="text"], 
+select, 
+textarea {
+	border: solid 1px hsl(0, 0%, 85%);
+	color: hsl(0, 0%, 15%);
+	font-family: inherit;
+	font-size: inherit;
+	outline: none;
+	
+	/* 角を丸くする */
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+input[type="number"] {
+	text-align: right;
+}
+input[type="number"]:focus, 
+input[type="password"]:focus, 
+input[type="tel"]:focus, 
+input[type="text"]:focus, 
+select:focus, 
+textarea:focus {
+	border-color: hsl(0, 0%, 50%);
+}
+input[type="button"], 
+input[type="submit"], 
+input[type="reset"] {
+	color: hsl(0, 0%, 15%);
+	font-family: inherit;
+	font-size: inherit;
+}
+input::placeholder {
+	color: hsl(0, 0%, 76%);
+}
+ol, ul {
+	line-height: 185%;
+	margin: 0;
+}
+ol li, ul li {
+	/*font-size: 109%;*/
+}
+p {
+	line-height: 176%;
+	margin: 0;
+}
+table {
+	border-spacing: 0;
+	font-size: inherit;
+}
+table th {
+	font-weight: normal;
+}
+textarea::placeholder {color: hsl(0, 0%, 76%);}
+
+@media only screen and (min-width:768px){/*PC*/
+	input[type="number"], 
+	input[type="password"], 
+	input[type="tel"], 
+	input[type="text"], 
+	select, 
+	textarea {
+		padding: 8px;
+	}
+}
+
+@media only screen and (max-width:767px) {/*SP*/
+	input[type="number"], 
+	input[type="password"], 
+	input[type="tel"], 
+	input[type="text"], 
+	select, 
+	textarea {
+		padding: 6px;
+	}
+}
