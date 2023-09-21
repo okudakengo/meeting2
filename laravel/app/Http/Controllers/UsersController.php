@@ -51,9 +51,8 @@ class UsersController extends Controller
 		
 			//バリデーション
 			$validator = Validator::make($request->all(), [
-        		'user_name' => 'required|max:64',
-        		'user_email1' => 'required|email:filter,dns',
-        		'user_password' => 'required|max:64',
+        		'name' => 'required|max:64',
+        		'email' => 'required|email:filter,dns',
         		'user_security_level' => 'required',
     		]);
 
@@ -70,9 +69,8 @@ class UsersController extends Controller
 			} else {//登録
 				$users = new User();
 			}
-			$users->user_name = $request->user_name;
-			$users->user_email1 = $request->user_email1;
-			$users->user_password = $request->user_password;
+			$users->name = $request->name;
+			$users->email = $request->email;
 			$users->user_security_level = $request->user_security_level;
 
 			$users->save();
