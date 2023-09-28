@@ -55,6 +55,19 @@
 								</tr>
 								<tr>
 									<th>
+										<label for='password'>パスワード</label>　<span class='red smaller'>*</span>
+									</th>
+									<td>
+										<input type='text' class='width-100' id="password" name="password" maxlength='64' value="{{ old('password', $user->password) }}">
+										@if ($errors->has('password'))
+										<div class="text-danger margin-top-8px">
+											{{ $errors->first('password') }}
+										</div>
+										@endif
+									</td>
+								</tr>
+								<tr>
+									<th>
 										<label for='user_security_level'>権　限</label>
 									</th>
 									<td>
@@ -114,6 +127,10 @@
 				} else if ($('#email').val() == ""){
 					alert("''メールアドレス'' を入力してください！");
 					$('#email').focus();
+					return false;
+				} else if ($('#password').val() == ""){
+					alert("''パスワード'' を入力してください！");
+					$('#password').focus();
 					return false;
 				} else {
 					return confirm('{{ $str_submit }}します。よろしいですか？');

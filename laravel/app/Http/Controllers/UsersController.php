@@ -71,8 +71,9 @@ class UsersController extends Controller
 			}
 			$users->name = $request->name;
 			$users->email = $request->email;
+			$users->password = password_hash($request->password, PASSWORD_DEFAULT);
 			$users->user_security_level = $request->user_security_level;
-
+			
 			$users->save();
 		}
 		return redirect('/users/');
