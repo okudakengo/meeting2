@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -71,7 +72,7 @@ class UsersController extends Controller
 			}
 			$users->name = $request->name;
 			$users->email = $request->email;
-			$users->password = password_hash($request->password, PASSWORD_DEFAULT);
+			$users->password = Hash::make($request->password);
 			$users->user_security_level = $request->user_security_level;
 			
 			$users->save();
