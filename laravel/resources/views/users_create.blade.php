@@ -53,6 +53,7 @@
 										@endif
 									</td>
 								</tr>
+								@if (is_null($user->id))
 								<tr>
 									<th>
 										<label for='password'>パスワード</label>　<span class='red smaller'>*</span>
@@ -66,6 +67,7 @@
 										@endif
 									</td>
 								</tr>
+								@endif
 								<tr>
 									<th>
 										<label for='user_security_level'>権　限</label>
